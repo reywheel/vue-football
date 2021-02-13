@@ -1,10 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "@/views/Home.vue";
-import TeamsList from "@/views/TeamsList";
-import LeaguesList from "@/views/LeaguesList";
-import LeagueCalendar from "@/views/LeagueCalendar";
-import TeamCalendar from "@/views/TeamCalendar";
 
 Vue.use(VueRouter);
 
@@ -12,12 +7,12 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: Home
+    redirect: {name: 'teams'}
   },
   {
     path: "/teams",
     name: "teams",
-    component: TeamsList,
+    component: () => import("@/views/TeamsList"),
     props: route => ({
       year: +route.query.year,
       search: route.query.search
@@ -26,7 +21,7 @@ const routes = [
   {
     path: "/leagues",
     name: "leagues",
-    component: LeaguesList,
+    component: () => import("@/views/LeaguesList"),
     props: route => ({
       year: +route.query.year,
       search: route.query.search
@@ -35,7 +30,7 @@ const routes = [
   {
     path: "/leagues/:id/calendar",
     name: "leagueCalendar",
-    component: LeagueCalendar,
+    component: () => import("@/views/LeagueCalendar"),
     props: route => ({
       id: +route.params.id,
       year: +route.query.year
@@ -44,7 +39,7 @@ const routes = [
   {
     path: "/teams/:id/calendar",
     name: "teamsCalendar",
-    component: TeamCalendar,
+    component: () => import("@/views/TeamCalendar"),
     props: route => ({
       id: +route.params.id,
       year: +route.query.year

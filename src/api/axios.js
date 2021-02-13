@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+
 const instance = axios.create({
-  baseURL: process.env.VUE_APP_LOCAL_PORT
+  baseURL: isDevelopment ? process.env.VUE_APP_LOCAL_PORT : process.env.VUE_APP_API_URL
 });
 
 instance.interceptors.request.use(config => {
