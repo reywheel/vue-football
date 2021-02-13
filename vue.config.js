@@ -1,5 +1,4 @@
 const isDevelopment = process.env.NODE_ENV === 'development';
-const isProduction = !isDevelopment;
 
 if (isDevelopment) {
   module.exports = {
@@ -12,7 +11,7 @@ if (isDevelopment) {
   };
 } else {
   module.exports = {
-    publicPath: "/vue-football/"
+    publicPath: "/vue-football/",
   };
 }
 
