@@ -1,6 +1,9 @@
 import leaguesApi from "@/api/leagues";
 
-export const getterTypes = {};
+export const getterTypes = {
+  getAll: "[leagues list] get all",
+  isLoading: "[league list] is loading"
+};
 
 export const mutationTypes = {
   getLeaguesStart: "[leagues list] get leagues start",
@@ -17,7 +20,10 @@ const state = {
   isLoading: false
 };
 
-const getters = {};
+const getters = {
+  [getterTypes.getAll]: state => state.data,
+  [getterTypes.isLoading]: state => state.isLoading
+};
 
 const mutations = {
   [mutationTypes.getLeaguesStart](state) {

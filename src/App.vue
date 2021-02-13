@@ -1,10 +1,10 @@
 <template>
   <el-container>
     <el-header>
-      <AppHeader/>
+      <AppHeader />
     </el-header>
     <el-main>
-      <router-view/>
+      <router-view />
     </el-main>
   </el-container>
 </template>
@@ -26,9 +26,9 @@ ul {
 import AppHeader from "@/components/Header";
 
 export default {
-  name: "Header",
+  name: "App",
   components: {
     AppHeader
   }
-}
+};
 </script>
